@@ -1,0 +1,42 @@
+{
+  "name": "microencuestas-backend",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "jest --coverage",
+    "test:ci": "jest --coverage --coverageReporters=text --forceExit",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:seed": "node prisma/seed.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "lines": 70
+      }
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "@sentry/node": "^10.53.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "nodemon": "^3.0.3",
+    "prisma": "^5.10.0",
+    "supertest": "^7.2.2"
+  }
+}

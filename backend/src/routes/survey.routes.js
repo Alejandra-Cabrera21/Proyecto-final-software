@@ -1,0 +1,13 @@
+const router = require('express').Router()
+const { getAll, getOne, getBySlug, create, update, changeStatus, duplicate, remove } = require('../controllers/survey.controller')
+const { auth } = require('../middleware/auth.middleware')
+router.get('/public/:slug', getBySlug)
+router.use(auth)
+router.get('/', getAll)
+router.get('/:id', getOne)
+router.post('/', create)
+router.put('/:id', update)
+router.patch('/:id/status', changeStatus)
+router.post('/:id/duplicate', duplicate)
+router.delete('/:id', remove)
+module.exports = router
